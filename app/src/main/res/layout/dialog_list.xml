@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_sheet"
+    android:orientation="vertical"
+    android:paddingBottom="8dp">
+
+    <View
+        android:layout_width="36dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@color/line2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="6dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="8dp"
+        android:paddingTop="12dp">
+
+        <TextView
+            android:id="@+id/tvDialogTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="目录"
+            android:textColor="@color/ink"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvDialogCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:textColor="@color/ink3"
+            android:textSize="11sp" />
+
+        <ImageView
+            android:id="@+id/btnDialogClose"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/item_press"
+            android:padding="9dp"
+            android:src="@drawable/ic_close"
+            android:tint="@color/ink3" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/searchRow"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:background="@drawable/bg_search"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="12dp"
+        android:paddingRight="6dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_search"
+            android:tint="@color/ink3" />
+
+        <EditText
+            android:id="@+id/etDialogSearch"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="在本书中搜索"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:paddingLeft="9dp"
+            android:singleLine="true"
+            android:textColor="@color/ink"
+            android:textColorHint="@color/ink3"
+            android:textSize="13.5sp" />
+
+        <ImageView
+            android:id="@+id/btnDialogSearch"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:padding="9dp"
+            android:src="@drawable/ic_search"
+            android:tint="@color/accent" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listDialog"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:divider="@null"
+        android:listSelector="@android:color/transparent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:scrollbars="none" />
+
+    <TextView
+        android:id="@+id/tvDialogEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="34dp"
+        android:paddingTop="34dp"
+        android:text="没有内容"
+        android:textColor="@color/ink3"
+        android:textSize="12sp"
+        android:visibility="gone" />
+</LinearLayout>

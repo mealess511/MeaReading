@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="-0.01"
+                    android:text="@string/shelf"
+                    android:textColor="@color/ink"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="0 本图书"
+                    android:textColor="@color/ink3"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btnSearch"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:background="@drawable/bg_soft"
+                android:contentDescription="search"
+                android:padding="9dp"
+                android:src="@drawable/ic_search"
+                android:tint="@color/ink2" />
+
+            <ImageView
+                android:id="@+id/btnSort"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/bg_soft"
+                android:contentDescription="sort"
+                android:padding="9dp"
+                android:src="@drawable/ic_sort"
+                android:tint="@color/ink2" />
+
+            <ImageView
+                android:id="@+id/btnMenu"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/bg_soft"
+                android:contentDescription="more"
+                android:padding="9dp"
+                android:src="@drawable/ic_more"
+                android:tint="@color/ink2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_search"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="14dp"
+            android:paddingRight="6dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:src="@drawable/ic_search"
+                android:tint="@color/ink3" />
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/search_hint"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:textColor="@color/ink"
+                android:textColorHint="@color/ink3"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/btnClearSearch"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:padding="9dp"
+                android:src="@drawable/ic_close"
+                android:tint="@color/ink3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tabBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tabNovel"
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_pill"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="@string/tab_novel"
+                android:textColor="@color/accent"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tabComic"
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="6dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/tab_comic"
+                android:textColor="@color/ink3"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tabRecent"
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="6dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/tab_recent"
+                android:textColor="@color/ink3"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tabFav"
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="6dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/tab_fav"
+                android:textColor="@color/ink3"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomSpacer"
+        android:layout_below="@id/header">
+
+        <ListView
+            android:id="@+id/listBooks"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:divider="@null"
+            android:listSelector="@android:color/transparent"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:paddingTop="4dp"
+            android:scrollbars="none" />
+
+        <LinearLayout
+            android:id="@+id/emptyState"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingBottom="40dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@drawable/ic_book"
+                android:tint="@color/line2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/empty_title"
+                android:textColor="@color/ink2"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tvEmptyHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:text="@string/empty_hint"
+                android:textColor="@color/ink3"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <View
+        android:id="@+id/bottomSpacer"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/transparent" />
+
+    <FrameLayout
+        android:id="@+id/btnImport"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/bg_fab"
+        android:elevation="8dp">
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/import_book"
+            android:src="@drawable/ic_add"
+            android:tint="@color/white" />
+    </FrameLayout>
+</RelativeLayout>

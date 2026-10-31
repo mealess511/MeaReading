@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/readerRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F0E3">
+
+    <FrameLayout
+        android:id="@+id/pageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ProgressBar
+        android:id="@+id/loadingBar"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tvPageInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_pageinfo"
+        android:paddingBottom="4dp"
+        android:paddingLeft="11dp"
+        android:paddingRight="11dp"
+        android:paddingTop="4dp"
+        android:textColor="#CCFFFFFF"
+        android:textSize="10sp" />
+
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="top"
+        android:background="@color/surface"
+        android:elevation="3dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/item_press"
+            android:padding="9dp"
+            android:src="@drawable/ic_back"
+            android:tint="@color/ink2" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:textColor="@color/ink"
+                android:textSize="13.5sp" />
+
+            <TextView
+                android:id="@+id/tvChapter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/ink3"
+                android:textSize="10.5sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnBookmark"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/item_press"
+            android:padding="9dp"
+            android:src="@drawable/ic_bookmark"
+            android:tint="@color/ink2" />
+
+        <ImageView
+            android:id="@+id/btnTts"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/item_press"
+            android:padding="9dp"
+            android:src="@drawable/ic_play"
+            android:tint="@color/ink2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/surface"
+        android:elevation="6dp"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvPageLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="52dp"
+                android:textColor="@color/ink3"
+                android:textSize="10sp" />
+
+            <SeekBar
+                android:id="@+id/sbProgress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:maxHeight="3dp"
+                android:minHeight="3dp"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp"
+                android:progressDrawable="@drawable/progress_bar"
+                android:thumbTint="@color/accent" />
+
+            <TextView
+                android:id="@+id/tvPercent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="52dp"
+                android:textColor="@color/ink3"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/tabToc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/item_press"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp">
+
+                <ImageView
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:src="@drawable/ic_list"
+                    android:tint="@color/ink2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="目录"
+                    android:textColor="@color/ink2"
+                    android:textSize="9.5sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tabSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/item_press"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp">
+
+                <ImageView
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:src="@drawable/ic_search"
+                    android:tint="@color/ink2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="搜索"
+                    android:textColor="@color/ink2"
+                    android:textSize="9.5sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tabTheme"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/item_press"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp">
+
+                <ImageView
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:src="@drawable/ic_palette"
+                    android:tint="@color/ink2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="主题"
+                    android:textColor="@color/ink2"
+                    android:textSize="9.5sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tabFont"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/item_press"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp">
+
+                <ImageView
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:src="@drawable/ic_font"
+                    android:tint="@color/ink2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="字号"
+                    android:textColor="@color/ink2"
+                    android:textSize="9.5sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tabSettings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/item_press"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp">
+
+                <ImageView
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:src="@drawable/ic_settings"
+                    android:tint="@color/ink2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="设置"
+                    android:textColor="@color/ink2"
+                    android:textSize="9.5sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

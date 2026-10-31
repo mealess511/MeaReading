@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MeaReading</string>
+    <string name="shelf">书架</string>
+    <string name="tab_novel">小说</string>
+    <string name="tab_comic">漫画</string>
+    <string name="tab_recent">最近</string>
+    <string name="tab_fav">收藏</string>
+    <string name="search_hint">搜索书名 / 作者</string>
+    <string name="empty_title">书架还是空的</string>
+    <string name="empty_hint">点击右下角 + 导入本地图书\n支持 EPUB / MOBI / AZW3 / TXT / FB2 / PDF / CBZ / CBR / CBT / ZIP</string>
+    <string name="import_book">导入图书</string>
+</resources>

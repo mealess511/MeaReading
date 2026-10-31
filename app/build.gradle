@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 33
+    buildToolsVersion "33.0.2"
+
+    defaultConfig {
+        applicationId "com.Mealess.appaction"
+        minSdkVersion 26
+        targetSdkVersion 33
+        versionCode 3
+        versionName "1.0.2"
+        // 不依赖 AndroidX，保持安装包体积小、启动快
+        multiDexEnabled false
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    packagingOptions {
+        // junrar 只需要 class，避免重复的 slf4j 元数据
+        exclude 'META-INF/*.kotlin_module'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    // junrar: 纯 Java 的 RAR/RAR5 解压（CBZ 之外的 CBR 支持）
+    implementation files('libs/junrar-8.1.2.jar')
+    // slf4j-api 是 junrar 的日志门面，运行时自动降级为 NOP
+    implementation files('libs/slf4j-api-2.0.17.jar')
+}

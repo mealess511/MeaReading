@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp"
+    android:paddingLeft="1dp"
+    android:paddingRight="1dp"
+    android:paddingTop="1dp">
+
+    <LinearLayout
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_card"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="11dp">
+
+        <FrameLayout
+            android:layout_width="62dp"
+            android:layout_height="86dp"
+            android:background="@drawable/bg_cover">
+
+            <ImageView
+                android:id="@+id/ivCover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_cover"
+                android:clipToOutline="true"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tvCoverText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:maxLines="3"
+                android:padding="4dp"
+                android:textColor="#B3FFFFFF"
+                android:textSize="11sp"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-medium"
+                android:lineSpacingExtra="2dp"
+                android:maxLines="2"
+                android:textColor="@color/ink"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tvMeta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ellipsize="middle"
+                android:singleLine="true"
+                android:textColor="@color/ink3"
+                android:textSize="10.5sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ProgressBar
+                    android:id="@+id/pbProgress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="4dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:max="100"
+                    android:progressDrawable="@drawable/progress_bar" />
+
+                <TextView
+                    android:id="@+id/tvPercent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="@color/ink3"
+                    android:textSize="9.5sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnStar"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginLeft="6dp"
+            android:background="@drawable/item_press"
+            android:padding="8dp"
+            android:src="@drawable/ic_star_line"
+            android:tint="@color/ink3" />
+    </LinearLayout>
+</FrameLayout>
